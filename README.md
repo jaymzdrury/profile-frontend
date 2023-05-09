@@ -1,4 +1,4 @@
-## A Profile App - Next js, CSS, Postgres, Node, Express
+## A Profile App - Next, CSS, Postgres, Node, Express
 
 <img src='/assets/portfolio.png' alt='Profile' width='600' />
 
