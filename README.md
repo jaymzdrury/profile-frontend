@@ -1,6 +1,4 @@
-## A Profile App
-
-### React, CSS, Postgres, Node, Express
+## A Profile App - React, CSS, Postgres, Node, Express
 
 <img src='/assets/portfolio.png' alt='Profile' width='350' />
 
