@@ -2,8 +2,6 @@
 
 ### React, CSS, Postgres, Node, Express
 
-***
-
 <img src='/assets/portfolio.png' alt='Profile' width='350' />
 
 [Live demo here](https://aaron-james-profile-demo.vercel.app/)
