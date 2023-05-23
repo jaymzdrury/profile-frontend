@@ -8,7 +8,7 @@ import './nav.css'
 const Link = ({id, active, activeSet, children}:{id: string, active: string, activeSet: Dispatch<SetStateAction<string>>, children: ReactNode}) => 
   <a href={id} onClick={() => activeSet(id)} className={active === id ? 'active' : ''}>{children}</a>
 
-function Nav() {
+function Nav(): JSX.Element {
   const [active, activeSet] = useState('#')
   return (
     <nav>

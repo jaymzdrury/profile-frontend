@@ -2,7 +2,7 @@
 import {FormEvent, useRef} from 'react'
 type SubmitEventHandler = (e: FormEvent<HTMLFormElement>) => void
 
-function Form() {
+function Form(): JSX.Element {
 
     const form = useRef<HTMLFormElement>(null)
     const name = useRef<HTMLInputElement>(null)
@@ -17,7 +17,7 @@ function Form() {
                 email: email.current?.value,
                 msg: message.current?.value
             }
-            const res  = await fetch(process.env.NEXT_PUBLIC_API_URL ?? '', {
+            const res  = await fetch(`${process.env.NEXT_HOST}/api/data`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)

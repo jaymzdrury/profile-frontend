@@ -6,9 +6,10 @@ import IMG4 from '../../assets/portfolio4.jpg'
 import IMG5 from '../../assets/portfolio5.png'
 import IMG6 from '../../assets/portfolio6.jpg'
 import './portfolio.css'
-import Image from 'next/image'
 
-const work = [
+import { Work } from '@/types'
+
+const work: Work[] = [
   {
     id: 1,
     image: IMG1,
@@ -66,10 +67,10 @@ const Article = ({img, title, github, dribble}:{img: string, title: string, gith
   </article>
 )
 
-function Portfolio() {
+function Portfolio(): JSX.Element {
   return (
     <Section id='portfolio' first='My Recent Work' second='Portfolio'>
-      {work.map(w => <Article key={w.id} img={w.image.src} title={w.title} github={w.github} dribble={w.demo} />)}
+      {work.map((w: Work) => <Article key={w.id} img={w.image.src} title={w.title} github={w.github} dribble={w.demo} />)}
     </Section>
   )
 }

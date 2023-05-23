@@ -3,7 +3,7 @@ import ME from '../../assets/me.png'
 import HeaderSocials from './HeaderSocials'
 import './header.css'
 
-function Header({name}:{name: string}) {
+function Header({name}:{name: string}): JSX.Element {
   return (
     <header>
         <div className="container header__container">

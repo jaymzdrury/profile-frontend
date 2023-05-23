@@ -3,8 +3,8 @@ import { FiUsers } from 'react-icons/fi'
 import { VscFolderLibrary } from 'react-icons/vsc'
 import ME from '../../assets/me-about.jpg'
 import Section from '@/common/Section'
-import { About } from '@/common/types'
 import './about.css'
+import { About } from '@/types'
 
 const Article = ({index, title, desc}:{index: number, title: string, desc: string}) => (
   <article className='about__card'>
@@ -14,7 +14,7 @@ const Article = ({index, title, desc}:{index: number, title: string, desc: strin
   </article>
 )
 
-function About({about}:{about: About}) {
+function About({about}:{about: About}): JSX.Element {
   return (
     <Section id='about' first='Get to Know' second='About Me'>
       <div className="about__me">

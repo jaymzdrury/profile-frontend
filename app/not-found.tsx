@@ -1,4 +1,4 @@
-export default function NotFound() {
+export default function NotFound(): JSX.Element {
     return (
       <section>
         <h5>Could not find requested url</h5>

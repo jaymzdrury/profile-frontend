@@ -10,7 +10,9 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import './testimonials.css'
 
-const testimonials = [
+import { Testimonials } from '@/types'
+
+const testimonials: Testimonials[] = [
   {
     avatar: AVTR1,
     name: 'Tina Snow',
@@ -43,13 +45,13 @@ const Article = ({name, review, img}:{name: string, review: string, img: string}
   </Fragment>
 )
 
-function Testimonials() {
+function Testimonials(): JSX.Element {
   return (
     <section id='testimonials'>
       <h5>Review from clients</h5>
       <h2>Testimonials</h2>
       <Swiper className='container testimonials__container' modules={[Pagination]} spaceBetween={40} slidesPerView={1} pagination={{clickable: true}}>
-        {testimonials.map(t => <SwiperSlide className='testimonial' key={t.name}><Article name={t.name} img={t.avatar.src} review={t.review} /></SwiperSlide>)}
+        {testimonials.map((t: Testimonials) => <SwiperSlide className='testimonial' key={t.name}><Article name={t.name} img={t.avatar.src} review={t.review} /></SwiperSlide>)}
       </Swiper>
     </section>
   )

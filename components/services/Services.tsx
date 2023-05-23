@@ -1,7 +1,7 @@
 import Section from "@/common/Section"
 import { BiCheck } from "react-icons/bi"
 import './services.css'
-import { Services } from "@/common/types"
+import { Services } from "@/types"
 
 const Article = ({title, services}:{title: string, services: string[]}) => (
   <article className="service">
@@ -19,7 +19,7 @@ const Article = ({title, services}:{title: string, services: string[]}) => (
   </article>
 )
 
-function Services({services}:{services: Services[]}) {
+function Services({services}:{services: Services[]}): JSX.Element {
   return (
     <Section id='services' first="What I Offer" second="Services">
       {services.map(s => <Article key={s.title} title={s.title} services={s.services} />)}

@@ -1,7 +1,7 @@
 import {BsLinkedin} from 'react-icons/bs'
 import {FaDribbble, FaGithub} from 'react-icons/fa'
 
-function HeaderSocials() {
+function HeaderSocials(): JSX.Element {
   return (
     <div className='header__socials'>
         <a href='https://linkedin.com' target='_blank'><BsLinkedin /></a>

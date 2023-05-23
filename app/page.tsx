@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation'
+
 import About from '@/components/about/About'
 import Contact from '@/components/contact/Contact'
 import Experience from '@/components/experience/Experience'
@@ -8,17 +10,17 @@ import Portfolio from '@/components/portfolio/Portfolio'
 import Services from '@/components/services/Services'
 import Testimonials from '@/components/testimonials/Testimonials'
 
-async function getData(){
-  const res = await fetch(process.env.NEXT_PUBLIC_API_URL ?? '', {headers:{'Cache-Control': 'no-cache'}})
-  if(!res.ok) throw new Error('Failed to fetch data')
-  return res.json()
-}
+import { getData } from '@/lib/getData'
+import { Data } from '@/types'
 
-export default async function Home() {
-  const d = await getData()
+export default async function Home(): Promise<JSX.Element> {
+
+  const d: Data[] = await getData()
+  if(!d) return notFound()
+
   return (
     <main>
-      <Header name={d[0].title} />
+      <Header name={d[0].name} />
       <Nav />
       <About about={d[0].about} />
       <Experience experience={d[0].experience} />
@@ -26,7 +28,7 @@ export default async function Home() {
       <Portfolio />
       <Testimonials />
       <Contact contacts={d[0].contacts} />
-      <Footer name={d[0].title} />
+      <Footer name={d[0].name} />
     </main>
   )
 }

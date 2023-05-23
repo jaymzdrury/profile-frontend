@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { BsPatchCheckFill } from 'react-icons/bs'
 import './experience.css'
 import Section from '@/common/Section';
-import { Experience, Dev } from '@/common/types';
+import { Experience, Dev } from '@/types';
 
 const Article = ({title, level}:{title: string, level: string}) => (
   <article className='experience__details'>
@@ -25,7 +25,7 @@ const DevComponent = ({title, info}: {title: string, info: Dev[]}) => (
   </Fragment>
 )
 
-function Experience({experience}:{experience: Experience}) {
+function Experience({experience}:{experience: Experience}): JSX.Element {
   return (
     <Section id='experience' first='What Skills I Have' second='My Experience'>
       <div className="experience__frontend">

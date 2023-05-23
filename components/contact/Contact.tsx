@@ -4,7 +4,7 @@ import {MdOutlineEmail} from 'react-icons/md'
 import { RiMessengerLine } from 'react-icons/ri'
 import { BsWhatsapp } from 'react-icons/bs'
 import './contact.css'
-import { Contact } from '@/common/types'
+import { Contact } from '@/types'
 
 const Article = ({index, type, value, link}:{index: number, type: string, value: string, link: string}) => (
     <article className='contact__option'>
@@ -15,11 +15,11 @@ const Article = ({index, type, value, link}:{index: number, type: string, value:
     </article>
 )
 
-function Contact({contacts}:{contacts: Contact[]}) {
+function Contact({contacts}:{contacts: Contact[]}): JSX.Element {
   return (
     <Section id='contact' first={contacts[0].type} second={contacts[0].value}>
         <div className='contact__options'>
-          {contacts.map((contact, i) => <Article key={contact.type} index={i} type={contact.type} value={contact.value} link={contact.link} />)}
+          {contacts.map((contact: Contact, i: number) => <Article key={contact.type} index={i} type={contact.type} value={contact.value} link={contact.link} />)}
         </div>
         <Form />
     </Section>

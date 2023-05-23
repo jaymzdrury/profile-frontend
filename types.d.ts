@@ -36,3 +36,23 @@ export interface Contact {
   value: string
   link: string
 }
+
+export interface Form {
+  title: string,
+  email: string,
+  msg: string
+}
+
+export interface Work {
+  id: number,
+  image: StaticImageData,
+  title: string,
+  github: string,
+  demo: string
+}
+
+export interface Testimonials {
+  avatar: StaticImageData,
+  name: string,
+  review: string
+}
