@@ -1,38 +1,27 @@
-'use client'
-import {FormEvent, useRef} from 'react'
-type SubmitEventHandler = (e: FormEvent<HTMLFormElement>) => void
+async function create(formData: FormData){
+    'use server'
+    const data = {
+        title: formData.get('name'),
+        email: formData.get('email'),
+        msg: formData.get('message')
+    }
+    try {
+        await fetch(`${process.env.NEXT_HOST}/api/data`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 function Form(): JSX.Element {
-
-    const form = useRef<HTMLFormElement>(null)
-    const name = useRef<HTMLInputElement>(null)
-    const email = useRef<HTMLInputElement>(null)
-    const message = useRef<HTMLTextAreaElement>(null)
-
-    const submit: SubmitEventHandler = async (e) => {
-        try {
-            e.preventDefault()
-            const data = {
-                title: name.current?.value,
-                email: email.current?.value,
-                msg: message.current?.value
-            }
-            const res  = await fetch(`${process.env.NEXT_HOST}/api/data`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            })
-            if(res.ok) form.current?.reset()
-        } catch (err) {
-            console.log(err)
-        }
-    }
-    
     return (
-        <form ref={form} onSubmit={submit}>
-            <input ref={name} type='text' name='name' placeholder='Your Full Name' required />
-            <input ref={email} type='email' name='email' placeholder='Your Email' required />
-            <textarea ref={message} name='message' rows={7} placeholder='Your Message' required />
+        <form action={create}>
+            <input type='text' name='name' placeholder='Your Full Name' required />
+            <input type='email' name='email' placeholder='Your Email' required />
+            <textarea name='message' rows={7} placeholder='Your Message' required />
             <button type='submit' className='btn btn-primary'>Send Message</button>
         </form>
     )
